@@ -1,4 +1,4 @@
-clc; clear all; close all;
+clc; clear all;
 
 %% Load files
 base = '.\Group6_Data\4-1a';
@@ -33,7 +33,8 @@ ideal_v_sim = simOut.get('ideal_v_sim');   % This must match the To Workspace va
 t_sim = ideal_v_sim.Time;
 y_sim = ideal_v_sim.Data;
 
-xwin = [0 8];
+xwin = [4.4 5.1];
+ywin = [-600 600];
 
 figure;
 
@@ -47,8 +48,8 @@ hold on;
 plot(v(:,1), v(:,2), 'r-', 'DisplayName','Measured v');
 plot(t_sim, y_sim, 'g--', 'LineWidth',1.5, 'DisplayName','Ideal v (Sim)');  % << green line
 hold off; grid on;
-xlim(xwin); ylim([-600 600]);
+xlim(xwin); ylim(ywin);
 xlabel('Time [s]');
 ylabel('Velocity');
-legend('Location','best');
-title('Velocity: measured vs ideal');
+%legend('Location','best');
+title('Velocity: measured');
