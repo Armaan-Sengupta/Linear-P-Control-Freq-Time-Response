@@ -6,7 +6,7 @@ clear; close all; clc;
 % Input data from 5-1a:
 K_p = 1; % Assume 1 from experimental design
 K_v = 366.67;
-tau = 0.1685;
+tau = 0.093%0.1685;
 
 topdir_path = '.\Group6_Data\4-3a';
 folders = dir(fullfile(topdir_path, 'f_*'));
@@ -127,6 +127,9 @@ nexttile;
 loglog(2*pi.*f, mag, 'LineWidth', 1.5, 'Color', 'r');
 hold on;
 loglog(2*pi.*results.test_freq, results.gain, 'x', 'LineWidth', 1.5, 'Color', 'b');
+%plot highest magnitude of sys response even though there is a frequency
+%shift
+plot(20*pi, 4.38106, 'x', 'LineWidth', 1.5, 'Color', 'g'); 
 ax1 = gca;      
 ax1.XTickLabel = [];
 %ax1.YTickLabel = [];
